@@ -1,0 +1,2842 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>শ্রী শ্রী মন্দির | Sacred Temple</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ── CSS Variables ── */
+      :root {
+        --off-white: #fafaf7;
+        --warm-cream: #fff6e5;
+        --soft-beige: #f3e7d3;
+        --light-gold: #e6b450;
+        --deep-gold: #d4a437;
+        --text-dark: #2c2416;
+        --text-mid: #5a4a2e;
+        --text-soft: #8b7355;
+        --radius-lg: 20px;
+        --radius-xl: 28px;
+        --shadow-soft: 0 8px 40px rgba(180, 140, 60, 0.1);
+        --shadow-gold: 0 4px 24px rgba(230, 180, 80, 0.18);
+      }
+
+      /* ── Reset & Base ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", "Hind Siliguri", sans-serif;
+        background: linear-gradient(180deg, #fafaf7 0%, #fff6e5 100%);
+        color: var(--text-dark);
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      /* ── Bangla Font Helper ── */
+      .bn {
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      /* ── Serif Headings ── */
+      h1,
+      h2,
+      h3,
+      .serif {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* ── Ambient Background Aura ── */
+      .aura {
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: 50%;
+        filter: blur(90px);
+        opacity: 0.22;
+        animation: breathe 8s ease-in-out infinite;
+      }
+
+      .aura-1 {
+        width: 420px;
+        height: 420px;
+        background: #e6b45055;
+        top: -120px;
+        left: -140px;
+        animation-delay: 0s;
+      }
+
+      .aura-2 {
+        width: 320px;
+        height: 320px;
+        background: #d4a43733;
+        top: 40vh;
+        right: -100px;
+        animation-delay: 3s;
+      }
+
+      .aura-3 {
+        width: 260px;
+        height: 260px;
+        background: #e6b45033;
+        bottom: 10vh;
+        left: 10vw;
+        animation-delay: 5s;
+      }
+
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.18;
+        }
+
+        50% {
+          transform: scale(1.12);
+          opacity: 0.3;
+        }
+      }
+
+      /* ── Particles Canvas ── */
+      #particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* ── Navbar ── */
+      .navbar-custom {
+        background: rgba(250, 250, 247, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(230, 180, 80, 0.15);
+        padding: 14px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 999;
+        transition: box-shadow 0.3s;
+      }
+
+      .navbar-custom.scrolled {
+        box-shadow: 0 4px 24px rgba(180, 140, 60, 0.12);
+      }
+
+      .navbar-brand-text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark) !important;
+        letter-spacing: 0.02em;
+      }
+
+      .navbar-brand-text span {
+        color: var(--light-gold);
+      }
+
+      .nav-link-custom {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-mid) !important;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 6px 14px !important;
+        transition: color 0.25s;
+      }
+
+      .nav-link-custom:hover,
+      .nav-link-custom.active {
+        color: var(--light-gold) !important;
+      }
+
+      .btn-nav-donate {
+        background: linear-gradient(
+          135deg,
+          var(--light-gold),
+          var(--deep-gold)
+        );
+        color: #fff !important;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 8px 20px !important;
+        letter-spacing: 0.05em;
+        border: none;
+        box-shadow: 0 2px 12px rgba(212, 164, 55, 0.3);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn-nav-donate:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(212, 164, 55, 0.4);
+      }
+
+      /* ── Hero ── */
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(250, 250, 247, 0.15) 0%,
+            rgba(255, 246, 229, 0.72) 100%
+          ),
+          url("https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=800&q=80")
+            center/cover no-repeat;
+        transform: scale(1.04);
+        animation: heroZoom 20s ease-in-out infinite alternate;
+      }
+
+      @keyframes heroZoom {
+        from {
+          transform: scale(1.04);
+        }
+
+        to {
+          transform: scale(1.1);
+        }
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(250, 250, 247, 0.1) 0%,
+          rgba(255, 246, 229, 0.55) 60%,
+          rgba(250, 250, 247, 0.88) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        padding: 0 20px;
+        max-width: 760px;
+        animation: fadeUp 1.2s ease both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(32px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-icon {
+        color: var(--light-gold);
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        animation: floatIcon 4s ease-in-out infinite;
+      }
+
+      @keyframes floatIcon {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 70px;
+        font-weight: 600;
+        line-height: 1.05;
+        color: var(--text-dark);
+        letter-spacing: 0.03em;
+        text-shadow: 0 2px 24px rgba(180, 120, 30, 0.08);
+      }
+
+      .hero-title .gold-line {
+        color: var(--deep-gold);
+        display: block;
+      }
+
+      .hero-subtitle {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        color: var(--text-soft);
+        margin: 16px 0 10px;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+      }
+
+      .hero-divider {
+        width: 60px;
+        height: 2px;
+        margin: 18px auto;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--light-gold),
+          transparent
+        );
+      }
+
+      .hero-desc {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1rem;
+        color: var(--text-mid);
+        line-height: 1.75;
+        max-width: 520px;
+        margin: 0 auto 32px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary-gold {
+        background: linear-gradient(
+          135deg,
+          var(--light-gold) 0%,
+          var(--deep-gold) 100%
+        );
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 13px 32px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        box-shadow: 0 6px 24px rgba(212, 164, 55, 0.35);
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        text-decoration: none;
+      }
+
+      .btn-primary-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(212, 164, 55, 0.45);
+        color: #fff;
+      }
+
+      .btn-outline-gold {
+        background: transparent;
+        color: var(--deep-gold);
+        border: 1.5px solid var(--light-gold);
+        border-radius: 50px;
+        padding: 12px 32px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition:
+          background 0.25s,
+          color 0.25s;
+        text-decoration: none;
+      }
+
+      .btn-outline-gold:hover {
+        background: var(--light-gold);
+        color: #fff;
+      }
+
+      .hero-scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        color: var(--light-gold);
+        font-size: 1.4rem;
+        animation: bounceDown 2s ease-in-out infinite;
+      }
+
+      @keyframes bounceDown {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+
+        50% {
+          transform: translateX(-50%) translateY(8px);
+        }
+      }
+
+      /* ── Section Shared ── */
+      .section-pad {
+        padding: 96px 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--light-gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .section-tag::before,
+      .section-tag::after {
+        content: "";
+        display: inline-block;
+        width: 28px;
+        height: 1px;
+        background: var(--light-gold);
+      }
+
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 600;
+        color: var(--text-dark);
+        line-height: 1.15;
+      }
+
+      .section-title .bn {
+        font-family: "Hind Siliguri", serif;
+      }
+
+      .gold-accent {
+        color: var(--deep-gold);
+      }
+
+      .section-divider {
+        width: 50px;
+        height: 2px;
+        margin: 16px 0;
+        background: linear-gradient(90deg, var(--light-gold), transparent);
+      }
+
+      /* ── Scroll Reveal ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── About Section ── */
+      .about-section {
+        background: transparent;
+      }
+
+      .about-img-wrap {
+        position: relative;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .about-img-wrap img {
+        width: 100%;
+        height: 460px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .about-img-badge {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        background: rgba(250, 246, 237, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(230, 180, 80, 0.25);
+        border-radius: 14px;
+        padding: 14px 20px;
+        box-shadow: var(--shadow-gold);
+      }
+
+      .about-img-badge .badge-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--deep-gold);
+        line-height: 1;
+      }
+
+      .about-img-badge .badge-label {
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        margin-top: 2px;
+      }
+
+      .about-text {
+        padding-left: 20px;
+      }
+
+      .about-body {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1.02rem;
+        line-height: 1.85;
+        color: var(--text-mid);
+        margin-bottom: 18px;
+      }
+
+      .about-stat-row {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .about-stat {
+        background: rgba(255, 246, 229, 0.8);
+        border: 1px solid rgba(230, 180, 80, 0.2);
+        border-radius: 16px;
+        padding: 18px 24px;
+        flex: 1;
+        min-width: 130px;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .about-stat .stat-icon {
+        color: var(--light-gold);
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .about-stat .stat-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .about-stat .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        margin-top: 2px;
+      }
+
+      /* ── Gallery ── */
+      .gallery-section {
+        background: var(--warm-cream);
+        border-radius: 40px;
+        margin: 0 16px;
+      }
+
+      .gallery-grid {
+        columns: 3;
+        gap: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          columns: 2;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          columns: 1;
+        }
+      }
+
+      .gallery-item {
+        break-inside: avoid;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+        margin-bottom: 16px;
+        box-shadow: var(--shadow-soft);
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        display: block;
+        transition: transform 0.55s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.07);
+      }
+
+      .gallery-item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 50%,
+          rgba(44, 36, 22, 0.55) 100%
+        );
+        opacity: 0;
+        transition: opacity 0.35s;
+        display: flex;
+        align-items: flex-end;
+        padding: 18px;
+      }
+
+      .gallery-item:hover .gallery-item-overlay {
+        opacity: 1;
+      }
+
+      .gallery-item-overlay span {
+        color: #fff;
+        font-size: 0.82rem;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      /* ── Video Section ── */
+      .video-card {
+        background: rgba(255, 246, 229, 0.7);
+        border: 1px solid rgba(230, 180, 80, 0.18);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        transition:
+          box-shadow 0.3s,
+          border-color 0.3s;
+      }
+
+      .video-card:hover {
+        box-shadow: var(--shadow-gold);
+        border-color: rgba(230, 180, 80, 0.45);
+      }
+
+      .video-thumb {
+        position: relative;
+        cursor: pointer;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: var(--soft-beige);
+      }
+
+      .video-thumb iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      .video-card-body {
+        padding: 20px 22px;
+      }
+
+      .video-card-label {
+        font-size: 0.72rem;
+        color: var(--light-gold);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .video-card-title {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1.05rem;
+        color: var(--text-dark);
+        margin-top: 5px;
+        font-weight: 600;
+      }
+
+      /* ── Events ── */
+      .events-section {
+        background: transparent;
+      }
+
+      .event-card {
+        background: rgba(255, 246, 229, 0.75);
+        border: 1px solid rgba(230, 180, 80, 0.18);
+        border-radius: var(--radius-xl);
+        padding: 28px 26px;
+        box-shadow: var(--shadow-soft);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        height: 100%;
+      }
+
+      .event-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .event-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(230, 180, 80, 0.15),
+          rgba(212, 164, 55, 0.25)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light-gold);
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+      }
+
+      .event-title {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 8px;
+      }
+
+      .event-time {
+        font-size: 0.78rem;
+        color: var(--light-gold);
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.05em;
+      }
+
+      .event-desc {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.92rem;
+        color: var(--text-soft);
+        line-height: 1.65;
+      }
+
+      /* ── Testimonials ── */
+      .testimonial-section {
+        background: var(--soft-beige);
+        border-radius: 40px;
+        margin: 0 16px;
+      }
+
+      .testimonial-card {
+        background: rgba(250, 246, 237, 0.8);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(230, 180, 80, 0.22);
+        border-radius: var(--radius-xl);
+        padding: 30px 28px;
+        box-shadow: var(--shadow-soft);
+        height: 100%;
+      }
+
+      .testimonial-stars {
+        color: var(--light-gold);
+        font-size: 0.9rem;
+        margin-bottom: 14px;
+        letter-spacing: 3px;
+      }
+
+      .testimonial-quote {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 1.02rem;
+        line-height: 1.8;
+        color: var(--text-mid);
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .author-avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--light-gold),
+          var(--deep-gold)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      .author-name {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+
+      .author-loc {
+        font-size: 0.75rem;
+        color: var(--text-soft);
+      }
+
+      /* ── Location ── */
+      .map-wrapper {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-soft);
+        height: 360px;
+        border: 1px solid rgba(230, 180, 80, 0.2);
+      }
+
+      .map-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      .location-info-card {
+        background: rgba(255, 246, 229, 0.85);
+        border: 1px solid rgba(230, 180, 80, 0.2);
+        border-radius: var(--radius-xl);
+        padding: 32px;
+        box-shadow: var(--shadow-soft);
+        height: 100%;
+      }
+
+      .location-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      .location-row-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        background: rgba(230, 180, 80, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light-gold);
+        font-size: 1rem;
+      }
+
+      .location-row-text p {
+        margin: 0;
+      }
+
+      .location-row-text .label {
+        font-size: 0.72rem;
+        color: var(--text-soft);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+
+      .location-row-text .value {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        font-weight: 500;
+      }
+
+      /* ── Donation ── */
+      .donation-section {
+        background: transparent;
+      }
+
+      .donation-card {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 246, 229, 0.9),
+          rgba(243, 231, 211, 0.8)
+        );
+        border: 1px solid rgba(230, 180, 80, 0.25);
+        border-radius: 32px;
+        padding: 56px 40px;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .donation-qr {
+        width: 160px;
+        height: 160px;
+        border-radius: 18px;
+        background: #fff;
+        margin: 24px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(180, 140, 60, 0.14);
+        border: 2px solid rgba(230, 180, 80, 0.25);
+        font-size: 4rem;
+        color: var(--light-gold);
+      }
+
+      .donation-methods {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .donation-method-badge {
+        background: rgba(230, 180, 80, 0.12);
+        border: 1px solid rgba(230, 180, 80, 0.28);
+        border-radius: 50px;
+        padding: 7px 18px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--deep-gold);
+        letter-spacing: 0.05em;
+      }
+
+      /* ── Footer ── */
+      footer {
+        background: var(--text-dark);
+        color: rgba(255, 246, 229, 0.75);
+        padding: 60px 0 30px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .footer-brand span {
+        color: var(--light-gold);
+      }
+
+      .footer-tagline {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.88rem;
+        color: rgba(255, 246, 229, 0.5);
+        margin-top: 6px;
+      }
+
+      .footer-heading {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--light-gold);
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .footer-link {
+        display: block;
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 246, 229, 0.65);
+        text-decoration: none;
+        padding: 4px 0;
+        transition: color 0.2s;
+      }
+
+      .footer-link:hover {
+        color: var(--light-gold);
+      }
+
+      .footer-divider {
+        border-color: rgba(255, 246, 229, 0.1);
+        margin: 36px 0 24px;
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid rgba(230, 180, 80, 0.25);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 246, 229, 0.65);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+        margin-right: 8px;
+      }
+
+      .social-link:hover {
+        background: var(--light-gold);
+        color: #fff;
+        border-color: var(--light-gold);
+      }
+
+      .footer-copy {
+        font-size: 0.78rem;
+        color: rgba(255, 246, 229, 0.35);
+      }
+
+      /* ── Responsive tweaks ── */
+      @media (max-width: 991px) {
+        .about-text {
+          padding-left: 0;
+          margin-top: 32px;
+        }
+
+        .gallery-section,
+        .testimonial-section {
+          margin: 0 8px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section-pad {
+          padding: 64px 0;
+        }
+
+        .hero-btns .btn-primary-gold,
+        .hero-btns .btn-outline-gold {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      /* ── Navbar toggler ── */
+      .navbar-toggler {
+        border: 1px solid rgba(230, 180, 80, 0.35);
+        padding: 5px 10px;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D4A437' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Ambient Aura Blobs -->
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="aura aura-3"></div>
+
+    <!-- Floating Particles -->
+    <canvas id="particles"></canvas>
+
+    <!-- ══════════════════════════════ NAVBAR ══════════════════════════════ -->
+    <nav class="navbar-custom" id="mainNav">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <a href="#" class="navbar-brand-text text-decoration-none">
+            <i
+              class="fa-solid fa-place-of-worship me-2"
+              style="color: var(--light-gold); font-size: 1.1rem"
+            ></i>
+            শ্রী শ্রী <span>মন্দির</span>
+          </a>
+
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navMenu"
+          >
+            <div
+              class="d-flex flex-column flex-lg-row align-items-center gap-1 mt-3 mt-lg-0"
+            >
+              <a href="#about" class="nav-link-custom">পরিচিতি</a>
+              <a href="#gallery" class="nav-link-custom">গ্যালারি</a>
+              <a href="#events" class="nav-link-custom">অনুষ্ঠান</a>
+              <a href="#location" class="nav-link-custom">অবস্থান</a>
+              <a href="#donate" class="btn-nav-donate ms-lg-2">
+                <i class="fa-solid fa-hand-holding-heart me-1"></i> দান করুন
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+    <section class="hero-section" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-icon"><i class="fa-solid fa-om"></i></div>
+
+        <h1 class="hero-title">
+          শ্রী শ্রী রাধা গোবিন্দ ও কালী
+          <span class="gold-line">মন্দির</span>
+        </h1>
+
+        <p class="hero-subtitle bn">
+          কোমরপুর, পলাশবাড়ী, গাইবান্ধা — এক পবিত্র আধ্যাত্মিক স্থান
+        </p>
+
+        <div class="hero-divider"></div>
+
+        <p class="hero-desc bn">
+          গাইবান্ধার পলাশবাড়ী উপজেলার কোমরপুর এলাকায় অবস্থিত এই ভাইরাল মন্দিরটি
+          শ্রী শ্রী রাধা গোবিন্দ ও কালী দেবীর আরাধনার কেন্দ্র। স্থানীয় ভক্তদের
+          বিশ্বাস ও ঐতিহ্যের সাথে জড়িয়ে থাকা এই মন্দিরটি আধ্যাত্মিক শান্তি ও
+          ভক্তির এক অনন্য স্থান।
+        </p>
+
+        <div class="hero-btns">
+          <a href="#about" class="btn-primary-gold">
+            <i class="fa-solid fa-place-of-worship me-2"></i>Explore Temple
+          </a>
+          <a href="#gallery" class="btn-outline-gold">
+            <i class="fa-solid fa-images me-2"></i>Visit Gallery
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
+    <section class="section-pad about-section" id="about">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <!-- Image -->
+          <div class="col-lg-5 reveal">
+            <div class="about-img-wrap">
+              <img src="assets/img/dev1.jpg" alt="মন্দিরের দৃশ্য" />
+              <div class="about-img-badge">
+                <div class="badge-num">৩৫০+</div>
+                <div class="badge-label bn">বছরের ইতিহাস</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="col-lg-7 reveal about-text">
+            <div class="section-tag"><i class="fa-solid fa-om"></i></div>
+
+            <h2 class="section-title bn">
+              মন্দির পরিচিতি <span class="gold-accent">|</span> About the Temple
+            </h2>
+
+            <div class="section-divider"></div>
+
+            <p class="about-body">
+              গাইবান্ধা জেলার পলাশবাড়ী উপজেলার কোমরপুর এলাকায় অবস্থিত শ্রী শ্রী
+              রাধা গোবিন্দ ও কালী মন্দিরটি স্থানীয় ভক্তদের কাছে একটি অত্যন্ত
+              গুরুত্বপূর্ণ আধ্যাত্মিক কেন্দ্র। প্রতিদিন অসংখ্য ভক্ত এখানে
+              পূজা-অর্চনা করতে আসেন এবং মানসিক শান্তি ও ভক্তির অনুভূতি লাভ করেন।
+            </p>
+
+            <p class="about-body">
+              মন্দিরটি স্থানীয় হিন্দু ধর্মাবলম্বীদের ঐতিহ্য, বিশ্বাস ও সংস্কৃতির
+              সাথে গভীরভাবে জড়িয়ে আছে। বিভিন্ন ধর্মীয় উৎসব ও পূজা-পার্বণে এখানে
+              বিশেষ আয়োজন করা হয়, যা পুরো এলাকার মানুষের মিলনমেলায় পরিণত হয়।
+            </p>
+
+            <div class="about-stat-row">
+              <div class="about-stat">
+                <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                <div class="stat-num">৫০০+</div>
+                <div class="stat-label bn">দৈনিক দর্শনার্থী</div>
+              </div>
+
+              <div class="about-stat">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="stat-num">৩৬৫</div>
+                <div class="stat-label bn">দিন খোলা থাকে</div>
+              </div>
+
+              <div class="about-stat">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-star-and-crescent"></i>
+                </div>
+                <div class="stat-num">১২+</div>
+                <div class="stat-label bn">বার্ষিক উৎসব</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ GALLERY ══════════════════════════════ -->
+    <section class="section-pad gallery-section" id="gallery">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <div class="section-tag justify-content-center">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h2 class="section-title bn">
+            আলোকচিত্র <span class="gold-accent">|</span> Photo Gallery
+          </h2>
+          <div class="section-divider mx-auto"></div>
+        </div>
+
+        <div class="gallery-grid reveal" id="photoGalleryGrid">
+          <!-- আইটেম ০: প্রভাতী পূজা -->
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/dev1.jpg"
+            data-caption="প্রভাটী পূজা"
+            data-index="0"
+          >
+            <img src="assets/img/dev1.jpg" alt="মন্দির সকাল" />
+            <div class="gallery-item-overlay">
+              <span class="bn">প্রভাতী পূজা</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+
+          <!-- আইটেম ১: দীপ প্রজ্জ্বলন -->
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/aroti.png"
+            data-caption="দীপ প্রজ্জ্বলন"
+            data-index="1"
+          >
+            <img src="assets/img/aroti.png" alt="প্রদীপ" />
+            <div class="gallery-item-overlay">
+              <span class="bn">দীপ প্রজ্জ্বলন</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+
+          <!-- আইটেম ২: ঐতিহ্যবাহী স্থাপত্য -->
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/radha.png"
+            data-caption="ঐতিহ্যবাহী স্থাপত্য"
+            data-index="2"
+          >
+            <img src="assets/img/radha.png" alt="মন্দির স্থাপত্য" />
+            <div class="gallery-item-overlay">
+              <span class="bn">ঐতিহ্যবাহী স্থাপত্য</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+
+          <!-- আইটেম ৩: দুর্গাপূজা উৎসব -->
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/mohadev.png"
+            data-caption="দুর্গাপূজা উৎসব"
+            data-index="3"
+          >
+            <img src="assets/img/mohadev.png" alt="দুর্গাপূজা" />
+            <div class="gallery-item-overlay">
+              <span class="bn">দুর্গাপূজা উৎসব</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+
+          <!-- আইটেম ৪: ফুলের অর্পণ (ডুপ্লিকেটটি বাদ দিয়ে একটি রাখা হয়েছে) -->
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/krisna.png"
+            data-caption="ফুলের অর্পণ"
+            data-index="4"
+          >
+            <img src="assets/img/krisna.png" alt="ফুলের অর্পণ" />
+            <div class="gallery-item-overlay">
+              <span class="bn">ফুলের অর্পণ</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-type="photo"
+            data-src="assets/img/dev2.jpg"
+            data-caption="সন্ধ্যা আরতি"
+            data-index="7"
+          >
+            <img src="assets/img/dev2.jpg" alt="রাতের মন্দির" />
+            <div class="gallery-item-overlay">
+              <span class="bn">সন্ধ্যা আরতি</span>
+            </div>
+            <div class="gallery-zoom-hint">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ VIDEOS ══════════════════════════════ -->
+    <section class="section-pad" id="videos">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <div class="section-tag justify-content-center">
+            <i class="fa-solid fa-video"></i>
+          </div>
+          <h2 class="section-title bn">
+            ভিডিও <span class="gold-accent">|</span> Video Gallery
+          </h2>
+          <div class="section-divider mx-auto"></div>
+        </div>
+
+        <div class="row g-4">
+          <!-- VIDEO 1 -->
+          <div class="col-md-4 reveal">
+            <div
+              class="video-card"
+              data-type="video"
+              data-videoid="X_Uyog7hF-I"
+              data-caption="২২ কোটি টাকার আধুনিক শ্রী শ্রী রাধা গোবিন্দ ও কালী মন্দির ডকুমেন্টারি"
+            >
+              <div class="video-thumb video-play-trigger">
+                <img
+                  src="https://img.youtube.com/vi/X_Uyog7hF-I/hqdefault.jpg"
+                  alt="মন্দির ডকুমেন্টারি"
+                />
+                <div class="vthumb-play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+
+              <div class="video-card-body">
+                <div class="video-card-label">
+                  <i class="fa-solid fa-video me-1"></i> Documentary
+                </div>
+                <div class="video-card-title bn">
+                  আধুনিক শ্রী শ্রী রাধা গোবিন্দ ও কালী মন্দির পরিচিতি
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEO 2 -->
+          <div class="col-md-4 reveal">
+            <div
+              class="video-card"
+              data-type="video"
+              data-videoid="vOCx5I97dX8"
+              data-caption="কোমরপুর রাধা গোবিন্দ ও কালী মন্দির ভ্রমণ ও স্থাপত্য"
+            >
+              <div class="video-thumb video-play-trigger">
+                <img
+                  src="https://img.youtube.com/vi/vOCx5I97dX8/hqdefault.jpg"
+                  alt="মন্দির ভ্রমণ"
+                />
+                <div class="vthumb-play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+
+              <div class="video-card-body">
+                <div class="video-card-label">
+                  <i class="fa-solid fa-star me-1"></i> Temple Tour
+                </div>
+                <div class="video-card-title bn">
+                  কোমরপুর মন্দির ভ্রমণ ও সাংস্কৃতিক পরিবেশ
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIDEO 3 -->
+          <div class="col-md-4 reveal">
+            <div
+              class="video-card"
+              data-type="video"
+              data-videoid="0vqDWEIJ40Q"
+              data-caption="বিশাল শিব বিগ্রহ ও মন্দির প্রাঙ্গণ ড্রোন ভিউ"
+            >
+              <div class="video-thumb video-play-trigger">
+                <img
+                  src="https://img.youtube.com/vi/0vqDWEIJ40Q/hqdefault.jpg"
+                  alt="শিব মূর্তি"
+                />
+                <div class="vthumb-play-btn">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+
+              <div class="video-card-body">
+                <div class="video-card-label">
+                  <i class="fa-solid fa-camera me-1"></i> Highlights
+                </div>
+                <div class="video-card-title bn">
+                  ৩০ ফুট উচ্চ শিব বিগ্রহ ও মন্দির প্রাঙ্গণ
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ EVENTS ══════════════════════════════ -->
+    <section class="section-pad events-section" id="events">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <div class="section-tag justify-content-center">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <h2 class="section-title bn">
+            পূজা ও অনুষ্ঠান <span class="gold-accent">|</span> Events & Rituals
+          </h2>
+          <div class="section-divider mx-auto"></div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon"><i class="fa-solid fa-sun"></i></div>
+              <div class="event-title bn">প্রভাতী পূজা</div>
+              <div class="event-time">
+                <i class="fa-regular fa-clock me-1"></i> ভোর ৫:৩০ — সকাল ৭:০০
+              </div>
+              <div class="event-desc bn">
+                প্রতিদিন ভোরে মঙ্গলারতি ও ভোগ নিবেদনের মাধ্যমে দিনের শুরু হয়।
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon"><i class="fa-solid fa-moon"></i></div>
+              <div class="event-title bn">সন্ধ্যা আরতি</div>
+              <div class="event-time">
+                <i class="fa-regular fa-clock me-1"></i> সন্ধ্যা ৬:৩০ — রাত ৮:০০
+              </div>
+              <div class="event-desc bn">
+                সূর্যাস্তের পর সন্ধ্যা আরতি ও ধূপ-দীপ জ্বালানোর আয়োজন করা হয়।
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon"><i class="fa-solid fa-star"></i></div>
+              <div class="event-title bn">দুর্গাপূজা</div>
+              <div class="event-time">
+                <i class="fa-regular fa-calendar me-1"></i> আশ্বিন মাস
+              </div>
+              <div class="event-desc bn">
+                বছরের সবচেয়ে বড় উৎসব। পাঁচ দিনব্যাপী মহাআয়োজনে হাজারো ভক্ত
+                অংশগ্রহণ করেন।
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+              </div>
+              <div class="event-title bn">রথযাত্রা</div>
+              <div class="event-time">
+                <i class="fa-regular fa-calendar me-1"></i> আষাঢ় মাস
+              </div>
+              <div class="event-desc bn">
+                বর্ণাঢ্য শোভাযাত্রায় সারা শহর মুখরিত হয়ে ওঠে। রথ টানার উৎসবে
+                অংশ নিন।
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon">
+                <i class="fa-solid fa-hands-praying"></i>
+              </div>
+              <div class="event-title bn">কালীপূজা</div>
+              <div class="event-time">
+                <i class="fa-regular fa-calendar me-1"></i> কার্তিক মাস
+              </div>
+              <div class="event-desc bn">
+                রাতব্যাপী পূজা ও আতশবাজির আলোয় মন্দির প্রাঙ্গণ আলোকিত হয়।
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="event-card">
+              <div class="event-icon"><i class="fa-solid fa-water"></i></div>
+              <div class="event-title bn">জন্মাষ্টমী</div>
+              <div class="event-time">
+                <i class="fa-regular fa-calendar me-1"></i> ভাদ্র মাস
+              </div>
+              <div class="event-desc bn">
+                শ্রীকৃষ্ণের জন্মদিন উপলক্ষে মধ্যরাতে বিশেষ পূজা ও কীর্তনের
+                আয়োজন।
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ TESTIMONIALS ══════════════════════════════ -->
+    <section class="section-pad testimonial-section" id="visitors">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <div class="section-tag justify-content-center">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h2 class="section-title bn">
+            ভক্তদের অনুভূতি <span class="gold-accent">|</span> Visitor
+            Experience
+          </h2>
+          <div class="section-divider mx-auto"></div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-quote bn">
+                "এখানে এসে মনে যে শান্তি পাই তা অন্য কোথাও পাই না। মন্দিরের
+                পরিবেশ সত্যিই অসাধারণ।"
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                  <div class="author-name bn">রাহেলা বেগম</div>
+                  <div class="author-loc">
+                    <i class="fa-solid fa-location-dot me-1"></i>ঢাকা
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-quote bn">
+                "মন্দিরের স্থাপত্য দেখে মুগ্ধ হয়ে গেলাম। বাংলার ঐতিহ্য ও
+                শিল্পের এক অনন্য নিদর্শন।"
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                  <div class="author-name bn">সুব্রত চক্রবর্তী</div>
+                  <div class="author-loc">
+                    <i class="fa-solid fa-location-dot me-1"></i>রাজশাহী
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <div class="testimonial-quote bn">
+                "দুর্গাপূজায় প্রথমবার এলাম, মনে হলো স্বর্গে এসেছি। আয়োজন ও
+                সজ্জা অতুলনীয় ছিল।"
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                  <div class="author-name bn">প্রিয়া দাস</div>
+                  <div class="author-loc">
+                    <i class="fa-solid fa-location-dot me-1"></i>সিরাজগঞ্জ
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ LOCATION ══════════════════════════════ -->
+    <section class="section-pad" id="location">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <div class="section-tag justify-content-center">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h2 class="section-title bn">
+            অবস্থান ও পথনির্দেশ <span class="gold-accent">|</span> Location
+          </h2>
+          <div class="section-divider mx-auto"></div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-7 reveal">
+            <div class="map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.1155788379747!2d89.35318831177207!3d25.233031830153774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fce1006f6d57a1%3A0x2a58b8fb393702ec!2z4Ka24KeN4Kaw4KeAIOCmtuCnjeCmsOCngCDgprDgpr7gpqfgpr4g4KaX4KeL4Kas4Ka_4Kao4KeN4KamIOCmkyDgppXgpr7gprLgp4Ag4Kau4Kao4KeN4Kam4Ka_4KawLCDgpqrgprLgpr7gprbgpqzgpr7gpqHgprzgpr8sIOCml-CmvuCmh-CmrOCmvuCmqOCnjeCmp-CmvuClpA!5e0!3m2!1sen!2sbd!4v1779914153189!5m2!1sen!2sbd"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="মন্দিরের অবস্থান"
+              >
+              </iframe>
+            </div>
+          </div>
+          <div class="col-lg-5 reveal">
+            <div class="location-info-card">
+              <div class="location-row">
+                <div class="location-row-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="location-row-text">
+                  <p class="label">ঠিকানা</p>
+                  <p class="value bn">
+                    শ্রী শ্রী রাধা গোবিন্দ ও কালী মন্দির, কোমরপুর, পলাশবাড়ী
+                    উপজেলা, গাইবান্ধা, রংপুর বিভাগ, বাংলাদেশ
+                  </p>
+                </div>
+              </div>
+
+              <div class="location-row">
+                <div class="location-row-icon">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="location-row-text">
+                  <p class="label">খোলার সময়</p>
+                  <p class="value bn">ভোর ৫:০০ — রাত ৯:০০</p>
+                </div>
+              </div>
+
+              <div class="location-row">
+                <div class="location-row-icon">
+                  <i class="fa-solid fa-bus"></i>
+                </div>
+                <div class="location-row-text">
+                  <p class="label">কীভাবে আসবেন</p>
+                  <p class="value bn">
+                    ঢাকা থেকে বাসে গাইবান্ধা বা পলাশবাড়ী, তারপর রিকশা বা লোকাল
+                    যানবাহনে কোমরপুর এলাকার মন্দির।
+                  </p>
+                </div>
+              </div>
+
+              <div class="location-row">
+                <div class="location-row-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="location-row-text">
+                  <p class="label">যোগাযোগ</p>
+                  <p class="value">+880 1700-000000</p>
+                </div>
+              </div>
+
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                class="btn-primary-gold d-inline-block mt-2"
+                style="font-size: 0.82rem; padding: 11px 24px"
+              >
+                <i class="fa-solid fa-route me-2"></i>Get Directions
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ DONATION ══════════════════════════════ -->
+    <section class="section-pad donation-section" id="donate">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-7 reveal">
+            <div class="donation-card">
+              <div class="section-tag justify-content-center">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <h2 class="section-title text-center bn">
+                মন্দির সংরক্ষণে <span class="gold-accent">সহযোগিতা করুন</span>
+              </h2>
+              <div class="section-divider mx-auto"></div>
+              <p
+                class="text-center bn"
+                style="
+                  color: var(--text-soft);
+                  font-family: &quot;Hind Siliguri&quot;, sans-serif;
+                  font-size: 0.98rem;
+                  line-height: 1.75;
+                  max-width: 480px;
+                  margin: 0 auto 8px;
+                "
+              >
+                আপনার ক্ষুদ্র অবদান এই ঐতিহ্যবাহী মন্দিরটিকে আগামী প্রজন্মের
+                জন্য সংরক্ষণে সহায়তা করবে।
+              </p>
+              <div class="donation-qr">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+              <p
+                class="text-center"
+                style="
+                  font-size: 0.82rem;
+                  color: var(--text-soft);
+                  margin-bottom: 14px;
+                "
+              >
+                Scan to donate via mobile banking
+              </p>
+              <div class="donation-methods">
+                <span class="donation-method-badge"
+                  ><i class="fa-solid fa-mobile-screen me-1"></i>bKash</span
+                >
+                <span class="donation-method-badge"
+                  ><i class="fa-solid fa-mobile-screen me-1"></i>Nagad</span
+                >
+                <span class="donation-method-badge"
+                  ><i class="fa-solid fa-university me-1"></i>Bank
+                  Transfer</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+    <footer>
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <i
+                class="fa-solid fa-place-of-worship me-2"
+                style="color: var(--light-gold)"
+              ></i>
+              শ্রী শ্রী <span>মন্দির</span>
+            </div>
+            <p class="footer-tagline bn">একটি পবিত্র আধ্যাত্মিক আশ্রয়</p>
+            <p
+              class="mt-3"
+              style="
+                font-family: &quot;Hind Siliguri&quot;, sans-serif;
+                font-size: 0.88rem;
+                color: rgba(255, 246, 229, 0.45);
+                line-height: 1.7;
+              "
+            >
+              বাংলার সংস্কৃতি ও আধ্যাত্মিকতার সেতুবন্ধনে শতবর্ষ ধরে দীপ্তিমান।
+            </p>
+            <div class="mt-4">
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <p class="footer-heading">দ্রুত লিংক</p>
+            <a href="#about" class="footer-link bn">পরিচিতি</a>
+            <a href="#gallery" class="footer-link bn">গ্যালারি</a>
+            <a href="#videos" class="footer-link bn">ভিডিও</a>
+            <a href="#events" class="footer-link bn">অনুষ্ঠান</a>
+            <a href="#location" class="footer-link bn">অবস্থান</a>
+          </div>
+
+          <div class="col-sm-6 col-lg-3">
+            <p class="footer-heading">পূজার সময়</p>
+            <a href="#" class="footer-link bn">প্রভাতী পূজা — ৫:৩০ AM</a>
+            <a href="#" class="footer-link bn">মধ্যাহ্ন ভোগ — ১২:০০ PM</a>
+            <a href="#" class="footer-link bn">সন্ধ্যা আরতি — ৬:৩০ PM</a>
+            <a href="#" class="footer-link bn">রাত্রি পূজা — ৮:৩০ PM</a>
+          </div>
+
+          <div class="col-lg-3">
+            <p class="footer-heading">যোগাযোগ</p>
+            <p
+              style="
+                font-family: &quot;Hind Siliguri&quot;, sans-serif;
+                font-size: 0.88rem;
+                color: rgba(255, 246, 229, 0.55);
+                line-height: 1.8;
+              "
+            >
+              <i
+                class="fa-solid fa-location-dot me-2"
+                style="color: var(--light-gold)"
+              ></i
+              >মন্দির রোড, সিরাজগঞ্জ সদর<br />
+              <i
+                class="fa-solid fa-phone me-2"
+                style="color: var(--light-gold)"
+              ></i
+              >+880 1700-000000<br />
+              <i
+                class="fa-solid fa-envelope me-2"
+                style="color: var(--light-gold)"
+              ></i
+              >info@temple.com
+            </p>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2"
+        >
+          <span class="footer-copy bn"
+            >© ২০২৪ শ্রী শ্রী রাধাকৃষ্ণ মন্দির। সকল স্বত্ব সংরক্ষিত।</span
+          >
+          <span class="footer-copy" style="color: rgba(255, 246, 229, 0.22)">
+            <i
+              class="fa-solid fa-om me-1"
+              style="color: var(--light-gold); opacity: 0.5"
+            ></i>
+            Sacred &amp; Serene
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ══════════════════════════════ SACRED MODAL ══════════════════════════════ -->
+
+    <!-- Photo Modal -->
+    <div
+      id="sacredModal"
+      class="sacred-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Gallery Viewer"
+    >
+      <!-- Overlay -->
+      <div class="sm-overlay" id="smOverlay"></div>
+
+      <!-- Glow ring -->
+      <div class="sm-glow-ring"></div>
+
+      <!-- Panel -->
+      <div class="sm-panel" id="smPanel">
+        <!-- Top bar -->
+        <div class="sm-topbar">
+          <div class="sm-caption-wrap">
+            <span class="sm-counter" id="smCounter"></span>
+            <span class="sm-caption bn" id="smCaption"></span>
+          </div>
+          <button class="sm-close-btn" id="smClose" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Image viewer -->
+        <div class="sm-image-wrap" id="smImageWrap">
+          <img src="" alt="" id="smImage" class="sm-image" />
+          <div class="sm-img-loader" id="smImgLoader">
+            <div class="sm-spinner"></div>
+          </div>
+        </div>
+
+        <!-- Video viewer -->
+        <div class="sm-video-wrap" id="smVideoWrap" style="display: none">
+          <div class="sm-video-frame">
+            <iframe
+              id="smVideoFrame"
+              src=""
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              title="Temple Video"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Nav arrows -->
+        <button class="sm-nav sm-prev" id="smPrev" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="sm-nav sm-next" id="smNext" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Dot strip -->
+        <div class="sm-dots" id="smDots"></div>
+      </div>
+    </div>
+
+    <style>
+      /* ════ SACRED MODAL — CSS ════ */
+
+      /* Video thumbnail play overlay */
+      .video-thumb {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .vthumb-play-btn {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(44, 36, 22, 0.28);
+        transition: background 0.3s;
+      }
+
+      .video-thumb:hover .vthumb-play-btn {
+        background: rgba(44, 36, 22, 0.48);
+      }
+
+      .vthumb-play-btn i {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--light-gold),
+          var(--deep-gold)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.3rem;
+        box-shadow: 0 6px 28px rgba(212, 164, 55, 0.55);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        padding-left: 4px;
+      }
+
+      .video-thumb:hover .vthumb-play-btn i {
+        transform: scale(1.12);
+        box-shadow: 0 10px 36px rgba(212, 164, 55, 0.7);
+      }
+
+      /* Gallery zoom hint */
+      .gallery-zoom-hint {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(230, 180, 80, 0.18);
+        border: 1px solid rgba(230, 180, 80, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light-gold);
+        font-size: 0.85rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .gallery-item:hover .gallery-zoom-hint {
+        opacity: 1;
+      }
+
+      /* ── Modal Backdrop ── */
+      .sacred-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .sacred-modal.sm-open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .sm-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(30, 18, 5, 0.92) 0%,
+          rgba(10, 6, 2, 0.97) 100%
+        );
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        transition:
+          backdrop-filter 0.6s ease,
+          -webkit-backdrop-filter 0.6s ease;
+      }
+
+      .sacred-modal.sm-open .sm-overlay {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      /* ── Glow Ring ── */
+      .sm-glow-ring {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(
+          circle,
+          rgba(230, 180, 80, 0.08) 0%,
+          transparent 70%
+        );
+        transform: scale(0.6);
+        opacity: 0;
+        transition:
+          transform 0.7s ease,
+          opacity 0.7s ease;
+      }
+
+      .sacred-modal.sm-open .sm-glow-ring {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      /* ── Panel ── */
+      .sm-panel {
+        position: relative;
+        z-index: 2;
+        width: min(92vw, 960px);
+        max-height: 92vh;
+        background: rgba(18, 12, 5, 0.72);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(230, 180, 80, 0.22);
+        border-radius: 24px;
+        box-shadow:
+          0 0 0 1px rgba(230, 180, 80, 0.1),
+          0 32px 80px rgba(0, 0, 0, 0.65),
+          0 0 60px rgba(230, 180, 80, 0.08) inset;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.88);
+        opacity: 0;
+        transition:
+          transform 0.55s cubic-bezier(0.34, 1.38, 0.64, 1),
+          opacity 0.45s ease;
+      }
+
+      .sacred-modal.sm-open .sm-panel {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      .sacred-modal.sm-closing .sm-panel {
+        transform: scale(0.9);
+        opacity: 0;
+        transition:
+          transform 0.4s ease-in,
+          opacity 0.35s ease-in;
+      }
+
+      .sacred-modal.sm-closing .sm-overlay {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+      }
+
+      /* ── Top Bar ── */
+      .sm-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px 12px;
+        border-bottom: 1px solid rgba(230, 180, 80, 0.1);
+        flex-shrink: 0;
+      }
+
+      .sm-caption-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sm-counter {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        color: var(--light-gold);
+        font-weight: 600;
+        opacity: 0.75;
+      }
+
+      .sm-caption {
+        font-family: "Hind Siliguri", sans-serif;
+        font-size: 0.95rem;
+        color: rgba(255, 246, 229, 0.8);
+      }
+
+      .sm-close-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(230, 180, 80, 0.1);
+        border: 1px solid rgba(230, 180, 80, 0.22);
+        color: rgba(255, 246, 229, 0.7);
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.25s;
+        flex-shrink: 0;
+      }
+
+      .sm-close-btn:hover {
+        background: rgba(230, 180, 80, 0.25);
+        color: #fff;
+        transform: rotate(90deg);
+      }
+
+      /* ── Image Viewer ── */
+      .sm-image-wrap {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 0;
+        background: transparent;
+      }
+
+      .sm-image {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+        display: block;
+        border-radius: 12px;
+        opacity: 0;
+        transform: scale(0.96) translateX(0);
+        transition: none;
+      }
+
+      .sm-image.sm-img-loaded {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+        transition:
+          opacity 0.42s ease,
+          transform 0.42s ease;
+      }
+
+      /* slide animations — direction: next slides left, prev slides right */
+      .sm-image.slide-out-left {
+        opacity: 0 !important;
+        transform: translateX(-6%) scale(0.96) !important;
+        transition:
+          opacity 0.22s ease,
+          transform 0.22s ease !important;
+      }
+
+      .sm-image.slide-out-right {
+        opacity: 0 !important;
+        transform: translateX(6%) scale(0.96) !important;
+        transition:
+          opacity 0.22s ease,
+          transform 0.22s ease !important;
+      }
+
+      /* slide-in: starting position (no transition — snaps into place, then sm-img-loaded triggers the reveal) */
+      .sm-image.slide-in-right {
+        opacity: 0;
+        transform: translateX(6%) scale(0.96);
+        transition: none !important;
+      }
+
+      .sm-image.slide-in-left {
+        opacity: 0;
+        transform: translateX(-6%) scale(0.96);
+        transition: none !important;
+      }
+
+      /* loader */
+      .sm-img-loader {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+
+      .sm-img-loader.loading {
+        opacity: 1;
+      }
+
+      .sm-spinner {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid rgba(230, 180, 80, 0.15);
+        border-top-color: var(--light-gold);
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ── Video Viewer ── */
+      .sm-video-wrap {
+        flex: 1;
+        padding: 12px 16px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInScale 0.5s ease both;
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.94);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .sm-video-frame {
+        width: 100%;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(230, 180, 80, 0.18);
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+        aspect-ratio: 16/9;
+      }
+
+      .sm-video-frame iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* ── Nav Arrows ── */
+      .sm-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(230, 180, 80, 0.1);
+        border: 1px solid rgba(230, 180, 80, 0.25);
+        color: rgba(255, 246, 229, 0.75);
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          transform 0.25s;
+        backdrop-filter: blur(6px);
+      }
+
+      .sm-nav:hover {
+        background: rgba(230, 180, 80, 0.3);
+        color: #fff;
+      }
+
+      .sm-prev {
+        left: 14px;
+      }
+
+      .sm-next {
+        right: 14px;
+      }
+
+      .sm-nav.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* ── Dots ── */
+      .sm-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 12px 0 16px;
+        flex-shrink: 0;
+      }
+
+      .sm-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(230, 180, 80, 0.25);
+        border: 1px solid rgba(230, 180, 80, 0.3);
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+
+      .sm-dot.active {
+        background: var(--light-gold);
+        transform: scale(1.35);
+        border-color: var(--light-gold);
+      }
+
+      /* Body lock */
+      body.sm-locked {
+        overflow: hidden;
+      }
+
+      /* ── Mobile ── */
+      @media (max-width: 600px) {
+        .sm-panel {
+          width: 100vw;
+          max-height: 100dvh;
+          border-radius: 0;
+          border-left: none;
+          border-right: none;
+          border-top: none;
+        }
+
+        .sm-image {
+          max-height: 55vh;
+        }
+
+        .sm-nav {
+          width: 38px;
+          height: 38px;
+          font-size: 0.85rem;
+        }
+
+        .sm-prev {
+          left: 6px;
+        }
+
+        .sm-next {
+          right: 6px;
+        }
+      }
+    </style>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+      $(function () {
+        /* ─── Navbar shadow on scroll ─── */
+        $(window).on("scroll", function () {
+          if ($(this).scrollTop() > 60) {
+            $("#mainNav").addClass("scrolled");
+          } else {
+            $("#mainNav").removeClass("scrolled");
+          }
+        });
+
+        /* ─── Scroll Reveal ─── */
+        const revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                $(entry.target).addClass("visible");
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+
+        $(".reveal").each(function () {
+          revealObserver.observe(this);
+        });
+
+        /* ─── Floating Particles ─── */
+        const canvas = document.getElementById("particles");
+        const ctx = canvas.getContext("2d");
+        let W,
+          H,
+          particles = [];
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener("resize", resize);
+
+        function Particle() {
+          this.reset();
+        }
+        Particle.prototype.reset = function () {
+          this.x = Math.random() * W;
+          this.y = Math.random() * H + H;
+          this.r = Math.random() * 2.5 + 0.8;
+          this.speed = Math.random() * 0.5 + 0.2;
+          this.alpha = Math.random() * 0.35 + 0.08;
+          this.drift = (Math.random() - 0.5) * 0.4;
+        };
+        Particle.prototype.update = function () {
+          this.y -= this.speed;
+          this.x += this.drift;
+          this.alpha -= 0.0008;
+          if (this.y < -10 || this.alpha <= 0) this.reset();
+        };
+        Particle.prototype.draw = function () {
+          ctx.save();
+          ctx.globalAlpha = this.alpha;
+          ctx.fillStyle = "#E6B450";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        };
+
+        for (let i = 0; i < 60; i++) {
+          const p = new Particle();
+          p.y = Math.random() * H;
+          particles.push(p);
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, W, H);
+          particles.forEach(function (p) {
+            p.update();
+            p.draw();
+          });
+          requestAnimationFrame(animate);
+        }
+        animate();
+
+        /* ════════════════════════════════════════════
+       SACRED MODAL — JS  (bulletproof rewrite)
+    ════════════════════════════════════════════ */
+
+        /* ── State ── */
+        var SM = {
+          photoData: [], // [{src, caption}, …]
+          currentIndex: 0,
+          mode: "photo", // 'photo' | 'video'
+          busy: false, // navigation lock
+          navTimer: null, // pending setTimeout handle
+          loadSeq: 0, // monotonic counter — cancels stale onload calls
+          touchStartX: 0,
+        };
+
+        /* ── Cache DOM refs once ── */
+        var $modal = $("#sacredModal");
+        var $overlay = $("#smOverlay");
+        var $panel = $("#smPanel");
+        var $imgWrap = $("#smImageWrap");
+        var $img = $("#smImage");
+        var $loader = $("#smImgLoader");
+        var $vidWrap = $("#smVideoWrap");
+        var $vidFrame = $("#smVideoFrame");
+        var $caption = $("#smCaption");
+        var $counter = $("#smCounter");
+        var $dots = $("#smDots");
+        var $prev = $("#smPrev");
+        var $next = $("#smNext");
+        var $closeBtn = $("#smClose");
+
+        /* ── Build photoData from DOM ── */
+        function buildPhotoData() {
+          SM.photoData = [];
+          $("#photoGalleryGrid .gallery-item").each(function () {
+            SM.photoData.push({
+              src: $(this).data("src") || "",
+              caption: $(this).data("caption") || "",
+            });
+          });
+        }
+        buildPhotoData();
+
+        /* ── Dot strip ── */
+        function buildDots() {
+          $dots.empty();
+          var total = SM.photoData.length;
+          if (total <= 1) return;
+          for (var i = 0; i < total; i++) {
+            $dots.append('<span class="sm-dot" data-idx="' + i + '"></span>');
+          }
+          updateDots();
+        }
+        function updateDots() {
+          $dots
+            .find(".sm-dot")
+            .removeClass("active")
+            .filter('[data-idx="' + SM.currentIndex + '"]')
+            .addClass("active");
+        }
+        function updateArrows() {
+          $prev.toggleClass("hidden", SM.currentIndex === 0);
+          $next.toggleClass(
+            "hidden",
+            SM.currentIndex === SM.photoData.length - 1,
+          );
+          $counter.text(SM.currentIndex + 1 + " / " + SM.photoData.length);
+        }
+
+        /* ────────────────────────────────────────────
+       Core: show image — NO race conditions
+       Strategy: clear old state → show loader →
+       after outDelay swap src → onload show image.
+       A loadSeq stamp cancels any stale callback.
+    ──────────────────────────────────────────── */
+        var ALL_IMG_CLASSES =
+          "sm-img-loaded slide-out-left slide-out-right slide-in-left slide-in-right";
+
+        function showImage(index, direction) {
+          /* cancel any pending navigation timer */
+          if (SM.navTimer !== null) {
+            clearTimeout(SM.navTimer);
+            SM.navTimer = null;
+          }
+
+          var entry = SM.photoData[index];
+          if (!entry || !entry.src) {
+            SM.busy = false;
+            return;
+          }
+
+          /* bump sequence — any older onload/onerror is now stale */
+          var mySeq = ++SM.loadSeq;
+
+          $caption.text(entry.caption);
+          updateDots();
+          updateArrows();
+          $loader.addClass("loading");
+
+          /* ── PHASE 1: slide current image OUT ── */
+          if (direction && $img.hasClass("sm-img-loaded")) {
+            var outCls =
+              direction === "next" ? "slide-out-left" : "slide-out-right";
+            $img.addClass(outCls);
+          }
+
+          var outDelay = direction && $img.hasClass("sm-img-loaded") ? 200 : 0;
+
+          SM.navTimer = setTimeout(function () {
+            SM.navTimer = null;
+
+            /* guard: stale call (another navigate happened) */
+            if (mySeq !== SM.loadSeq) return;
+
+            /* ── PHASE 2: strip ALL classes, make invisible, set new src ── */
+            $img.removeClass(ALL_IMG_CLASSES);
+            /* force a reflow so the browser registers the class removal
+           before we add slide-in — prevents stale transition state  */
+            void $img[0].offsetWidth;
+
+            /* add slide-in starting position */
+            if (direction) {
+              var inCls =
+                direction === "next" ? "slide-in-right" : "slide-in-left";
+              $img.addClass(inCls);
+            }
+
+            /* set src on the visible <img> element directly */
+            $img[0].src = ""; /* reset so onload always fires */
+            void $img[0].offsetWidth; /* flush */
+            $img[0].src = entry.src;
+            $img.attr("alt", entry.caption);
+
+            /* ── PHASE 3: wait for load ── */
+            function onDone() {
+              if (mySeq !== SM.loadSeq) return; /* stale — another nav won */
+              $loader.removeClass("loading");
+              /* strip slide-in class, add loaded class → triggers opacity+scale transition */
+              $img.removeClass("slide-in-left slide-in-right");
+              void $img[0].offsetWidth; /* flush before adding loaded */
+              $img.addClass("sm-img-loaded");
+              SM.busy = false;
+            }
+
+            $img[0].onload = onDone;
+            $img[0].onerror = onDone; /* still show even if image 404s */
+
+            /* Safety: if already cached the browser may never fire onload */
+            if ($img[0].complete && $img[0].naturalWidth > 0) {
+              $img[0].onload = null;
+              $img[0].onerror = null;
+              onDone();
+            }
+          }, outDelay);
+        }
+
+        /* ── Navigate ── */
+        function navigateTo(newIndex, direction) {
+          if (newIndex < 0 || newIndex >= SM.photoData.length) return;
+          if (SM.busy) {
+            /* allow override: cancel in-flight and proceed immediately */
+            SM.busy = false;
+          }
+          SM.busy = true;
+          SM.currentIndex = newIndex;
+          showImage(SM.currentIndex, direction);
+        }
+
+        /* ── Open modal ── */
+        function openModal(mode, data) {
+          SM.mode = mode;
+          SM.busy = false;
+          SM.loadSeq++; /* invalidate any prior load */
+
+          $("body").addClass("sm-locked");
+          $vidWrap.hide();
+          $imgWrap.show();
+          $img.removeClass(ALL_IMG_CLASSES); /* clean slate */
+          $img[0].src = "";
+
+          if (mode === "photo") {
+            SM.currentIndex = data.index;
+            buildDots();
+            $prev.removeClass("hidden");
+            $next.removeClass("hidden");
+            showImage(SM.currentIndex, null);
+          } else {
+            $imgWrap.hide();
+            $vidWrap.css("display", "flex");
+            $vidFrame.attr(
+              "src",
+              "https://www.youtube.com/embed/" +
+                data.videoId +
+                "?autoplay=1&rel=0&modestbranding=1",
+            );
+            $caption.text(data.caption);
+            $counter.text("");
+            $dots.empty();
+            $prev.addClass("hidden");
+            $next.addClass("hidden");
+          }
+
+          $modal.addClass("sm-open");
+        }
+
+        /* ── Close modal ── */
+        function closeModal() {
+          if (!$modal.hasClass("sm-open")) return;
+          $modal.addClass("sm-closing");
+
+          /* cancel any in-flight load */
+          SM.loadSeq++;
+          if (SM.navTimer !== null) {
+            clearTimeout(SM.navTimer);
+            SM.navTimer = null;
+          }
+          $img[0].onload = null;
+          $img[0].onerror = null;
+
+          setTimeout(function () {
+            $modal.removeClass("sm-open sm-closing");
+            $("body").removeClass("sm-locked");
+            $vidFrame.attr("src", "");
+            $img[0].src = "";
+            $img.removeClass(ALL_IMG_CLASSES);
+            $loader.removeClass("loading");
+            SM.busy = false;
+          }, 430);
+        }
+
+        /* ════ Event Bindings ════ */
+
+        /* Gallery photo click */
+        $(document).on(
+          "click",
+          '.gallery-item[data-type="photo"]',
+          function (e) {
+            e.stopPropagation();
+            var idx = parseInt($(this).data("index"), 10);
+            if (isNaN(idx)) idx = 0;
+            openModal("photo", { index: idx });
+          },
+        );
+
+        /* Video card / thumbnail click */
+        $(document).on("click", '.video-card[data-type="video"]', function (e) {
+          e.stopPropagation();
+          openModal("video", {
+            videoId: $(this).data("videoid"),
+            caption: $(this).data("caption") || "",
+          });
+        });
+        /* also clicking the play-trigger inside the card */
+        $(document).on("click", ".video-play-trigger", function (e) {
+          e.stopPropagation();
+          var $card = $(this).closest('.video-card[data-type="video"]');
+          if ($card.length) {
+            openModal("video", {
+              videoId: $card.data("videoid"),
+              caption: $card.data("caption") || "",
+            });
+          }
+        });
+
+        /* Prev arrow */
+        $prev.on("click", function (e) {
+          e.stopPropagation();
+          if (SM.currentIndex > 0) navigateTo(SM.currentIndex - 1, "prev");
+        });
+
+        /* Next arrow */
+        $next.on("click", function (e) {
+          e.stopPropagation();
+          if (SM.currentIndex < SM.photoData.length - 1)
+            navigateTo(SM.currentIndex + 1, "next");
+        });
+
+        /* Dot click */
+        $dots.on("click", ".sm-dot", function (e) {
+          e.stopPropagation();
+          var idx = parseInt($(this).data("idx"), 10);
+          if (idx !== SM.currentIndex) {
+            navigateTo(idx, idx > SM.currentIndex ? "next" : "prev");
+          }
+        });
+
+        /* Close button & overlay */
+        $closeBtn.on("click", function (e) {
+          e.stopPropagation();
+          closeModal();
+        });
+        $overlay.on("click", function () {
+          closeModal();
+        });
+
+        /* Prevent clicks inside panel bubbling to overlay */
+        $panel.on("click", function (e) {
+          e.stopPropagation();
+        });
+
+        /* Keyboard */
+        $(document).on("keydown", function (e) {
+          if (!$modal.hasClass("sm-open")) return;
+          if (e.key === "Escape") {
+            closeModal();
+            return;
+          }
+          if (SM.mode !== "photo") return;
+          if (e.key === "ArrowLeft" && SM.currentIndex > 0)
+            navigateTo(SM.currentIndex - 1, "prev");
+          if (
+            e.key === "ArrowRight" &&
+            SM.currentIndex < SM.photoData.length - 1
+          )
+            navigateTo(SM.currentIndex + 1, "next");
+        });
+
+        /* Touch swipe */
+        $panel[0].addEventListener(
+          "touchstart",
+          function (e) {
+            SM.touchStartX = e.changedTouches[0].screenX;
+          },
+          { passive: true },
+        );
+        $panel[0].addEventListener(
+          "touchend",
+          function (e) {
+            if (SM.mode !== "photo") return;
+            var diff = SM.touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+              if (diff > 0 && SM.currentIndex < SM.photoData.length - 1)
+                navigateTo(SM.currentIndex + 1, "next");
+              else if (diff < 0 && SM.currentIndex > 0)
+                navigateTo(SM.currentIndex - 1, "prev");
+            }
+          },
+          { passive: true },
+        );
+
+        /* ─── Smooth scroll for nav links ─── */
+        $('a[href^="#"]').on("click", function (e) {
+          const target = $(this.getAttribute("href"));
+          if (target.length) {
+            e.preventDefault();
+            $("html, body").animate(
+              { scrollTop: target.offset().top - 74 },
+              700,
+            );
+            // close mobile menu
+            $("#navMenu").collapse("hide");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
